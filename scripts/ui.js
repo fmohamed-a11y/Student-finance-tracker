@@ -1,4 +1,4 @@
-import { highlight, escapeHTML } from "./search";
+import { highlight, escapeHTML } from "./search.js";
 
 function byId(id) {
     return document.getElementById(id);

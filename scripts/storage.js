@@ -1,4 +1,4 @@
-import { validateField, isValid, validateRecord } from "./validator";
+import { validateField, isValid, validateRecord } from "./validator.js";
 
 const RECORD_KEY = 'finance:records';
 const SETTINGS_KEY = 'finance:settings';

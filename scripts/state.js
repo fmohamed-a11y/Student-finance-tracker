@@ -1,4 +1,4 @@
-import { cleanText } from "./validator";
+import { cleanText } from "./validator.js";
 
 export const DEFAULT_SETTINGS = {
     baseCurrency: 'USD',
