@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Tracker</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- <link rel="icon" href=""> -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header>
+        <h1>Student Finance Tracker</h1>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#records">Records</a></li>
+                <li><a href="#add">Add</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+        <section id="dashboard" aria-labelledby="dashboard-title">
+            <h2 id="dashboard-title">Dashboard</h2>
+            <div class="stats">
+                <p class="stat">Records <strong id="stat-count">0</strong></p>
+                <p class="stat">Total spent <strong id="stat-total">0</strong></p>
+                <p class="stat">Top Category <strong id="stat-top">-</strong></p>
+            </div>
+            <h3>Last 7 days</h3>
+            <ul id="chart" class="chart" aria-label="spending in the last 7 days"></ul>
+            <p id="cap-message" class="cap" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="records" aria-label="records-title">
+            <h2 id="records-title">Records</h2>
+            <div class="toolbar">
+                <label for="search-input">Search (regex)</label>
+                <input type="text" name="search" id="search-input" placeholder="e.g. beef|pork">
+
+                <label><input type="checkbox" id="search-case" checked> Ignore case</label>
+
+                <p id="search-error" role="status" aria-live="polite"></p>
+                <label for="sort-select">Sort by</label>
+                <select id="sort-select">
+                    <option value="date-desc">Date (newest first)</option>
+                    <option value="date-asc">Date (oldest first)</option>
+                    <option value="description-asc">Description (A-Z)</option>
+                    <option value="description-desc">Description (A-Z)</option>
+                    <option value="amount-asc">Amount (low to high)</option>
+                    <option value="amount-desc">Amount (high to low)</option>
+                </select>
+            </div>
+            <p id="records-status" role="status" aria-live="polite"></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="records-body"></tbody>
+            </table>
+            <p id="empty-state" hidden>No transactions yet. Add your first one below.</p>
+        </section>
+
+        <section id="add" aria-labelledby="add-title">
+            <h2 id="add-title">Add transaction</h2>
+            <form id="record-form" novalidate>
+                <label for="description">Description</label>
+                <input type="text" id="description" aria-describedby="description-error">
+                <p id="description-error" class="error"></p>
+                <label for="amount">Amount (USD)</label>
+                <input type="text" id="amount" inputmode="decimal" aria-describedby="amount-error">
+                <p id="amount-error" class="error"></p>
+                <label for="category">Category</label>
+                <select id="category" aria-describedby="category-error"></select>
+                <p id="category-error" class="error"></p>
+                <label for="date">Date</label>
+                <input type="date" id="date" aria-describedby="date-error">
+                <p id="date-error" class="error"></p>
+                <button type="submit">Add</button>
+                <p id="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section id="settings" aria-labelledby="settings-title">
+            <h2 id="settings-title">Settings</h2>
+            <p id="settings-status" role="status" aria-live="polite"></p>
+            <h3>Budget</h3>
+
+            <form id="cap-form">
+                <label for="cap-input">Budget cap (USD)</label>
+                <input type="text" id="cap-input" inputmode="decimal">
+                <button type="submit">Save cap</button>
+            </form>
+
+            <h3>Currency</h3>
+            <label for="Currency-select">Show amounts in</label>
+            <select id="currency-select">
+                <option value="USD">USD (base)</option>
+                <option value="EUR">EUR</option>
+                <option value="RWF">RWF</option>
+            </select>
+
+            <form id="rates-form">
+                <label for="rate-eur">1 USD in EUR</label>
+                <input type="text" id="rate-eur" inputmode="decimal">
+                <label for="rate-rwf">1 USD in RWF</label>
+                <input type="text" id="rate-rwf" inputmode="decimal">
+                <button type="submit">Save rates</button>
+            </form>
+            <h3>Categories</h3>
+            <ul id="category-list"></ul>
+            <form id="category-form">
+                <label for="new-category">New category</label>
+                <input type="text" id="new-category">
+                <button type="submit">Add category</button>
+            </form>
+            <h3>Data</h3>
+            <button type="button" id="export-btn">Export JSON</button>
+            <label for="import-file">Import JSON</label>
+            <input type="text" id="import-file" accept=".json,application/json">
+        </section>
+
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">About</h2>
+            <p>Student Finance Tracker helps students record their spending, see where their money goes, and stay under a monthly budget. Built with plain HTML, CSS and Javascript.</p>
+            <p>Made by Fatima Samir.</p>
+            <ul>
+                <li>Github: <a href="https://github.com/fmohamed-a11y">fmohamed-a11y</a></li>
+                <li>Email: <a href="mailto:f.mohamed@alustudent.com">f.mohamed@alustudent.com</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer><p>Student Finance Tracker</p></footer>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
