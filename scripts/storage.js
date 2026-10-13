@@ -1,11 +1,11 @@
 import { validateField, isValid, validateRecord } from "./validator.js";
 
-const RECORD_KEY = 'finance:records';
+const RECORDS_KEY = 'finance:records';
 const SETTINGS_KEY = 'finance:settings';
 
 export function loadRecords() {
     try {
-        const saved = JSON.parse(localStorage.getItem(RECORD_KEY));
+        const saved = JSON.parse(localStorage.getItem(RECORDS_KEY));
         if (Array.isArray(saved)) {
             return saved;
         }

@@ -113,7 +113,7 @@ export function deleteRecord(id) {
 }
 
 export function sortRecords(list, key, direction) {
-    const sorted = lost.slice();
+    const sorted = list.slice();
     sorted.sort((a, b)=>{
         let result = 0;
         if (key === 'amount') {
@@ -142,7 +142,7 @@ function roundMoney(value) {
 
 function toDateString(date) {
     let month = String(date.getMonth() + 1);
-    let dat = String(date.getDate());
+    let day = String(date.getDate());
     if (month.length === 1) {
         month = '0' + month;
     }
@@ -164,7 +164,7 @@ export function getStats(list, today = new Date()) {
         if (categoryTotals[record.category] === undefined) {
             categoryTotals[record.category] = categoryTotals[record.category] + record.amount;
         }
-
+    }
         let topCategory = '-';
         let topAmount = 0;
         for (const category in categoryTotals) {
@@ -173,7 +173,6 @@ export function getStats(list, today = new Date()) {
                 topCategory = category;
             }
         }
-    }
 
     const lastSevenDays = [];
     for (let i = 6; i >= 0; i --) {
