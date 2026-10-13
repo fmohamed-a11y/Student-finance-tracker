@@ -28,7 +28,7 @@ function convert(amount) {
     return convertAmount(amount, displayCurrency);
 }
 
-function savAll() {
+function saveAll() {
     saveRecords(getRecords());
     saveSettings(getSettings());
 }
@@ -62,7 +62,12 @@ function refresh() {
     renderCap(getCapStatus(stats.total, getSettings().cap), displayCurrency, convert);
 }
 
-function handelAdd(event) {
+function checkField(field) {
+    const value = document.getElementById(field).value;
+    showFieldError(field, validateField(field, value));
+}
+
+function handleAdd(event) {
     event.preventDefault();
     const data = {};
     let ok = true;
@@ -82,7 +87,7 @@ function handelAdd(event) {
 
     addRecord(data);
     saveAll();
-    event.target.rest();
+    event.target.reset();
     showStatus('form-status', 'Transaction added.');
     refresh();
 }
@@ -243,7 +248,7 @@ function start() {
         });
     }
 
-    docuent.getElementById('records-body').addEventListener('click', handleTabClick);
+    document.getElementById('records-body').addEventListener('click', handleTabClick);
     document.addEventListener('keydown', handeleKeys);
     document.getElementById('search-input').addEventListener('input', refresh);
     document.getElementById('search-case').addEventListener('change', refresh);
