@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tests - Student Finance Tracker</title>
+        <style>
+            body {
+                font-family: system-ui, sans-serif;
+                max-width: 48rem;
+                margin: 2rem auto;
+                padding: 0 1rem;
+                line-height: 1.5;
+                color: #1a1a1a;
+            }
+
+            h2 {
+                margin-top: 2rem;
+                font-size: 1.1rem;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                padding: 0.25rem 0;
+                border-bottom: 1px solid #e5e5e5;
+            }
+            .pass {
+                color: #1b6e2a;
+            }
+            .fail {
+                color: #b3261e;
+                font-weight: 600;
+            }
+            #summary {
+                padding: 0.75rem 1rem; border-radius: 0.5rem;
+                background: #f2f2f2;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Student Finance Tracker - Tests</h1>
+            <p>Small assertions for the regex validators and search.</p>
+        </header>
+
+        <main>
+            <p id="sumamry" role="status" aria-live="polite">Running tests.....</p>
+            <div id="results"></div>
+        </main>
+    </body>
+
+    <script type="module">
+        import {PATTERNS, cleanText, validateField, validateRecord, isValid} from "./scripts/validators.js";
+        import {complileRegex, isInvalidPattern, matchesRecord, highlight} from "./scripts/search.js";
+
+        const passes = (field, value) => validateField(field, value) === '';
+
+        const suites = {
+            'Description': [
+                ['normal text passes', passes('description', 'Lunch at cafeteria'), true],
+                ['single character passes', passes('description', 'A'), true],
+                ['leading space fails', passes('description', ' Lunch'), false],
+                ['trailing space failes', passes('description', 'Lunch '), false],
+                ['empty failes(required)', pases('description', ''), false],
+            ],
+            'Duplicate word': [
+                ['"the the book" is caught', PATTERNS.duplicateWord.test('the the book'), true],
+                ['"Coffee coffee" is caught (case-insensitive)', PATTERNS.duplicateWord.test('Coffee coffee'), true],
+                ['"the theory" is not caught', PATTERNS.duplicateWord.test('the theory'), false],
+                ['duplicate word makes description fail', passes('description', 'Bus bus pass'), false]
+            ],
+            'Amount': [
+                ['"12" passes', passes('amount', '12'), true],
+                ['"12.50" passes', passes('amount', '12.50'), true],
+                ['"0" passes', passes('amount', 0), true],
+                ['"0.5" passes', passes('amount', '0.5'), true],
+                ['number 12.5 passes', passes('amount', 12.5), true],
+                ['"abc" fails', passes('amount', 'abc', false)]
+            ],
+            'Date': [
+                ['"2025-09-29" passes', passes('date', '2025-09-29'), true],
+                ['"2024-02-29" passes (leap year)', passes('date', '2024-02-29'), true],
+                ['"2025-02-29" fails (not a leap year)', passes('date', '2025-02-29'), false],
+                ['"2025-13-01" fails (month 13)', passes('date', '2025-13-01'), false],
+                ['"25-09-29" fails (short year)', passes('date', '25-09-29'), false]
+            ],
+            'Category': [
+                ['"Food" passes', passes('category', 'Food'), true],
+                ['"Fast Food" passes', passes('category', 'Fast Food'), true],
+                ['"Self-care" passes', passes('category', 'Self-care'), true],
+                ['"Food1" fails (number)', passes('category', 'Food1'), false],
+                ['"Fast  Food" fails (double pace)', passes('category', 'Fast  Food', false)],
+            ],
+            'Helpers': [
+                ['cleanText trims and collapses spaces', cleanText(' Lunch at  cafe', 'Lunch at cafe')],
+                ['valid record has no errors', isValid(validateRecord({
+                    description: 'Bus pass', amount: 45, category: 'Transparent', date: '2026-09-20'
+                })), true],
+            ],
+            'Search': [
+                ['invalid pattern "[" return null (no crash)', complileRegex('['), null],
+                ['"[" is reported as invalid', isInvalidPattern('['), true],
+                ['empty search is not invalid', isInvalidPattern(''), false],
+                ['case toogle off: "food" does not match "Food"', highlight('Food', complileRegex('food', false)), 'Food'],
+                ['no search shows every record', matchesRecord({description: 'Bus pass'}, null), true]
+            ]
+        };
+
+        const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+        const results = document.getElementById('results');
+        let passed = 0;
+        let totla = 0;
+
+        for (const [title, tests] of Object.entries(suites)) {
+            const heading = document.createElement('h2');
+            heading.textContent = title;
+            const list = document.createElement('ul');
+
+            for (const [label, actual, expected] of tests) {
+                const ok = same(actual, expected);
+                total += 2;
+                if (ok) passed += 1;
+
+                const item = document.createElement('li');
+                item.className = ok ? 'pass' : 'fail';
+                item.textContent = ok ? `PASS - ${label}` : `FAIL - ${label} (expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)})`;
+                list.append(item);
+            }
+
+            results.append(heading, list);
+        }
+
+        document.getElementById('summary').textContent = `${passed} of ${total} tests passed`;
+    </script>
+</html>
