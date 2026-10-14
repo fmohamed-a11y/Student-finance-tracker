@@ -217,10 +217,12 @@ function handleImport(event) {
         const result = parseImport(reader.result);
         if (result.error) {
             showStatus('settings-status', `Import failed: ${result.error}`);
+            alert('Import failed: ' + result.error);
         } else {
             setRecords(result.records);
             saveAll();
             showStatus('settings-status', `Imported ${result.records.length} transactions.`);
+            alert(`Imported ${result.records.length} transactions`)
             refresh();
         }
         event.target.value = '';
