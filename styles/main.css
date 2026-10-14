@@ -131,6 +131,34 @@ main {
 main:focus {
     outline: none;
 }
+/*
+main > section:target, main:not(:has(section:target)) > #dashboard {
+    display: none;
+}
+*/
+/*
+body:not(:has(section:target)) nav a[href="#dashboard"],
+body:has(#dashboard:target) nav a[href="#dashboard"],
+body:has(#records:target) nav a[href="#records"],
+body:has(#add:target) nav a[href="#add"],
+body:has(#settings:target) nav a[href="#settings"],
+body:has(#about:target) nav a[href="#about"] {
+    background: var(--pink);
+    color: var(--primary);
+}
+*/
+
+main > section {
+    display: none;
+}
+
+main > section:target {
+    display: block;
+}
+
+main:not(:has(> section:target)) > #dashboard {
+    display: block;
+}
 
 section {
     background: var(--surface);
