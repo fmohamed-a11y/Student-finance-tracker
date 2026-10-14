@@ -17,7 +17,7 @@ import {
     renderCategoryOptions, renderRecords, readEditRow, renderStats,
     renderChart, renderCap, showFieldError, showStatus
 } from "./ui.js"
-import { exportRecords, loadRecords, loadSettings, parseImports, saveRecords, saveSettings } from './storage.js';
+import { exportRecords, loadRecords, loadSettings, parseImport, saveRecords, saveSettings } from './storage.js';
 
 let editingId = null;
 let displayCurrency = 'USD';

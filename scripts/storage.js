@@ -47,7 +47,7 @@ export function exportRecords(records) {
     URL.revokeObjectURL(link.href);
 }
 
-export function parseImports(text) {
+export function parseImport(text) {
     let data;
     try {
         data = JSON.parse(text);
