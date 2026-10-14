@@ -76,15 +76,19 @@
                 <label for="description">Description</label>
                 <input type="text" id="description" aria-describedby="description-error">
                 <p id="description-error" class="error"></p>
+
                 <label for="amount">Amount (USD)</label>
                 <input type="text" id="amount" inputmode="decimal" aria-describedby="amount-error">
                 <p id="amount-error" class="error"></p>
+
                 <label for="category">Category</label>
                 <select id="category" aria-describedby="category-error"></select>
                 <p id="category-error" class="error"></p>
+
                 <label for="date">Date</label>
                 <input type="date" id="date" aria-describedby="date-error">
                 <p id="date-error" class="error"></p>
+                
                 <button type="submit">Add</button>
                 <p id="form-status" role="status" aria-live="polite"></p>
             </form>
@@ -126,7 +130,7 @@
             <h3>Data</h3>
             <button type="button" id="export-btn">Export JSON</button>
             <label for="import-file">Import JSON</label>
-            <input type="text" id="import-file" accept=".json,application/json">
+            <input type="file" id="import-file" accept=".json,application/json">
         </section>
 
         <section id="about" aria-labelledby="about-title">
