@@ -521,9 +521,9 @@ footer {
     }
 
     #record-form {
-        display: grid;
+        /*display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap: var(--space-3);
+        column-gap: var(--space-3);*/
     }
 
     #record-form button, #record-form #form-status {
