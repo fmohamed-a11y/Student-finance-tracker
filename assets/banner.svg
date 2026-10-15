@@ -1,1 +1,78 @@
 
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde6ef"/>
+      <stop offset="0.55" stop-color="#fbd3e2"/>
+      <stop offset="1" stop-color="#f6c1d6"/>
+    </linearGradient>
+    <radialGradient id="coin" cx="0.38" cy="0.32" r="0.8">
+      <stop offset="0" stop-color="#fff4f8"/>
+      <stop offset="0.5" stop-color="#f9c6d9"/>
+      <stop offset="1" stop-color="#ee9fbd"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="300" rx="28" fill="url(#bg)"/>
+  <circle cx="683" cy="92" r="2" fill="#fff" opacity="0.9"/><circle cx="118" cy="52" r="2.5" fill="#fff" opacity="0.5"/><circle cx="768" cy="44" r="2.5" fill="#fff" opacity="0.5"/><circle cx="96" cy="59" r="2" fill="#fff" opacity="0.7"/><circle cx="163" cy="138" r="1.5" fill="#fff" opacity="0.9"/><circle cx="889" cy="45" r="2.5" fill="#fff" opacity="0.5"/><circle cx="477" cy="46" r="2.5" fill="#fff" opacity="0.9"/><circle cx="832" cy="40" r="1.5" fill="#fff" opacity="0.5"/><circle cx="1160" cy="83" r="2" fill="#fff" opacity="0.7"/><circle cx="315" cy="75" r="2.5" fill="#fff" opacity="0.7"/><circle cx="1167" cy="107" r="1.5" fill="#fff" opacity="0.9"/><circle cx="404" cy="205" r="1.5" fill="#fff" opacity="0.9"/><circle cx="148" cy="45" r="2.5" fill="#fff" opacity="0.5"/><circle cx="1036" cy="233" r="2" fill="#fff" opacity="0.7"/><circle cx="948" cy="200" r="2" fill="#fff" opacity="0.5"/><circle cx="388" cy="139" r="1.5" fill="#fff" opacity="0.9"/><circle cx="634" cy="283" r="2" fill="#fff" opacity="0.7"/><circle cx="939" cy="162" r="2.5" fill="#fff" opacity="0.5"/><circle cx="261" cy="277" r="2" fill="#fff" opacity="0.5"/><circle cx="720" cy="92" r="2" fill="#fff" opacity="0.7"/><circle cx="100" cy="54" r="2.5" fill="#fff" opacity="0.9"/><circle cx="662" cy="189" r="2.5" fill="#fff" opacity="0.7"/><circle cx="1037" cy="248" r="1.5" fill="#fff" opacity="0.5"/><circle cx="572" cy="257" r="2.5" fill="#fff" opacity="0.9"/><circle cx="153" cy="46" r="2.5" fill="#fff" opacity="0.9"/><circle cx="654" cy="243" r="2" fill="#fff" opacity="0.9"/><circle cx="810" cy="192" r="1.5" fill="#fff" opacity="0.7"/><circle cx="747" cy="101" r="2.5" fill="#fff" opacity="0.5"/><circle cx="1031" cy="45" r="1.5" fill="#fff" opacity="0.7"/><circle cx="284" cy="141" r="2" fill="#fff" opacity="0.7"/><circle cx="1036" cy="56" r="1.5" fill="#fff" opacity="0.7"/><circle cx="842" cy="157" r="1.5" fill="#fff" opacity="0.7"/><circle cx="1146" cy="157" r="2.5" fill="#fff" opacity="0.7"/><circle cx="754" cy="209" r="1.5" fill="#fff" opacity="0.5"/><circle cx="189" cy="105" r="1.5" fill="#fff" opacity="0.5"/><circle cx="497" cy="21" r="2" fill="#fff" opacity="0.9"/><circle cx="393" cy="149" r="2" fill="#fff" opacity="0.5"/><circle cx="318" cy="229" r="2.5" fill="#fff" opacity="0.7"/><circle cx="1179" cy="178" r="1.5" fill="#fff" opacity="0.9"/><circle cx="1075" cy="42" r="2" fill="#fff" opacity="0.9"/>
+  
+  <g transform="translate(95 70)">
+    <circle r="49" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="46" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="34.0" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="16.6" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-16.1" cy="-19.3" rx="12.9" ry="6.4" fill="#fff" opacity="0.7" transform="rotate(-30 -16.1 -19.3)"/>
+  </g>
+  <g transform="translate(205 215)">
+    <circle r="37" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="34" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="25.2" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="12.2" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-11.9" cy="-14.3" rx="9.5" ry="4.8" fill="#fff" opacity="0.7" transform="rotate(-30 -11.9 -14.3)"/>
+  </g>
+  <g transform="translate(1080 75)">
+    <circle r="43" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="40" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="29.6" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="14.4" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-14.0" cy="-16.8" rx="11.2" ry="5.6" fill="#fff" opacity="0.7" transform="rotate(-30 -14.0 -16.8)"/>
+  </g>
+  <g transform="translate(1140 215)">
+    <circle r="55" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="52" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="38.5" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="18.7" text-anchor="middle" font-family="Georgia, serif" font-size="52" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-18.2" cy="-21.8" rx="14.6" ry="7.3" fill="#fff" opacity="0.7" transform="rotate(-30 -18.2 -21.8)"/>
+  </g>
+  <g transform="translate(990 245)">
+    <circle r="29" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="26" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="19.2" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="9.4" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-9.1" cy="-10.9" rx="7.3" ry="3.6" fill="#fff" opacity="0.7" transform="rotate(-30 -9.1 -10.9)"/>
+  </g>
+  <g transform="translate(60 245)">
+    <circle r="27" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="24" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="17.8" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="8.6" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-8.4" cy="-10.1" rx="6.7" ry="3.4" fill="#fff" opacity="0.7" transform="rotate(-30 -8.4 -10.1)"/>
+  </g>
+  <g transform="translate(300 60)">
+    <circle r="21" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="18" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="13.3" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="6.5" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-6.3" cy="-7.6" rx="5.0" ry="2.5" fill="#fff" opacity="0.7" transform="rotate(-30 -6.3 -7.6)"/>
+  </g>
+  <g transform="translate(930 40)">
+    <circle r="19" fill="#e7a3bd" opacity="0.55"/>
+    <circle r="16" fill="url(#coin)" stroke="#d9819f" stroke-width="2"/>
+    <circle r="11.8" fill="none" stroke="#fff" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="3 4"/>
+    <text y="5.8" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#b3245f" fill-opacity="0.85">✿</text>
+    <ellipse cx="-5.6" cy="-6.7" rx="4.5" ry="2.2" fill="#fff" opacity="0.7" transform="rotate(-30 -5.6 -6.7)"/>
+  </g>
+  <text x="600" y="140" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#5a1233">Student Finance Tracker</text>
+  <text x="600" y="190" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#8f1a4b">Small spends. Big peace of mind.</text>
+  <rect x="470" y="215" width="260" height="36" rx="18" fill="#ffffff" fill-opacity="0.75"/>
+  <text x="600" y="239" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#b3245f">HTML · CSS · JavaScript</text>
+</svg>
