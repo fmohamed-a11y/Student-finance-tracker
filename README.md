@@ -1,8 +1,10 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Student Finance Tracker banner with pink coins" width="100%">
+  <img src="assets/banner.svg" alt="pocketpetal banner with pink coins" width="100%">
 </p>
 
-<h1 align="center">🌸 Student Finance Tracker</h1>
+<h1 align="center">🌸 pocketpetal</h1>
+
+<p align="center"><i>Student Finance Tracker</i></p>
 
 <p align="center">
   <b>A soft, simple spending diary for students. Track every little spend, stay under budget.</b>
@@ -54,11 +56,13 @@
 ---
 
 ## 🌷 Overview
-**Student Finance Tracker** is a one-page web app that helps students keep track of their daily spending. You add what you spend (lunch, books, bus fare…), and the app shows your total, your biggest category, a chart of the last 7 days, and how much of your budget is left.
- 
-Think of it as a little money diary that lives in your browser. There's no sign-up, no account and no server: you open the page and start logging. Every spend is checked as you type, saved instantly, and turned into simple numbers and a chart, so you can see where your money goes at a glance.
- 
+
+**pocketpetal** (my Student Finance Tracker) is a one-page web app that helps students keep track of their daily spending. You add what you spend (lunch, books, bus fare…), and the app shows your total, your biggest category, a chart of the last 7 days, and how much of your budget is left.
+
+The name and the little purse logo 👛 come from the idea of a small, soft "pocket" for your money. Think of it as a little money diary that lives in your browser. There's no sign-up, no account and no server: you open the page and start logging. Every spend is checked as you type, saved instantly, and turned into simple numbers and a chart, so you can see where your money goes at a glance.
+
 Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript**: no frameworks, no libraries, just clean code split into small files that each do one job.
+
 | | |
 |---|---|
 | 🎓 **Course** | Building Responsive UI (Front-End Web Development) |
@@ -83,6 +87,7 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 | 🔤 **Regex rules** | 5 (including 1 advanced back-reference) |
 | 🧪 **Tests** | 41 automatic checks in `tests.html` |
 | 💱 **Currencies** | USD (base), EUR, RWF |
+| 🌱 **Sample data** | 12 records in `seed.json`, loaded with one button |
 
 ---
 
@@ -106,6 +111,8 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 | Feature | What it does |
 |---|---|
 | 🧭 **Separate pages** | The menu opens Dashboard, Records, Add, Settings or About one at a time |
+| 👛 **pocketpetal branding** | App name and purse logo in the header and the welcome pop-up |
+| 🙋 **Welcome name form** | On your first visit a pop-up asks your name; type it to get "Hi Fatma", or skip to get "Hi there" |
 | 👋 **Greeting pop-up** | Slides in when the app opens, showing your name and how many records you have |
 | ➕ **Add transactions** | Add a description, amount, category and date, checked with regex as you type |
 | ✏️ **Inline edit** | Edit a row directly in the table; press **Escape** to cancel |
@@ -113,14 +120,20 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 | 🔍 **Regex search** | Search with patterns; matches are highlighted in yellow |
 | 🔠 **Case toggle** | Choose whether the search cares about capital letters |
 | ↕️ **Sorting** | Sort by date, description (A–Z / Z–A) or amount |
-| 📊 **Dashboard stats** | Total spent, number of records and top category |
+| 📊 **Dashboard stats** | Total spent, number of records, top category and **budget left** |
 | 📈 **7-day chart** | Bars show how much you spent on each of the last 7 days |
-| 🎯 **Budget cap** | Shows money left (green), or a warning when you go over (red) |
+| 🎯 **Budget cap** | A progress bar and message: green when you're fine, amber when you're close, red when you go over |
+| 💚 **Budget left card** | A dashboard card showing exactly how much money is left from your cap |
+| ⚠️ **Warn me at** | Choose to be warned at 50%, 75% or 90% of your budget |
+| 🔔 **Toast alerts** | A small pop-up tells you when you hit your warning level, go over budget, or import a file |
 | 💱 **Currencies** | Switch between USD, EUR and RWF using rates you type in |
-| 🏷️ **Custom categories** | Add your own categories next to the default ones |
+| 🏷️ **Custom categories** | Add your own categories next to the default ones (duplicates are blocked) |
+| 🍴 **Category icons** | Every category has an emoji (🍴 Food, 📚 Books, 🚌 Transport…); new ones get 🏷️ |
+| 🧮 **Records total** | Under the table: how many records you see and their total, which updates as you search |
 | 💾 **Auto-save** | Every change is saved instantly and stays after a reload |
 | 📤 **Export JSON** | Download all your records as a backup file |
 | 📥 **Import JSON** | Load a backup file; it's checked first, so broken files are rejected |
+| 🌱 **Load sample data** | One button in Settings loads the 12 sample records from `seed.json` and jumps to the Dashboard |
 | 📱 **Responsive** | Works on phones, tablets and laptops |
 | 🎞️ **Animations** | Smooth transitions on buttons, chart bars and the greeting pop-up |
 
@@ -130,10 +143,11 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 
 | Page | What you see | Main files | What the code does |
 |---|---|---|---|
-| 🏠 **Dashboard** | Total spent, records, top category, 7-day chart, budget message | `state.js`, `ui.js` | `getStats()` adds up all records and the last 7 days; `getCapStatus()` compares the total to your cap; `renderStats()`, `renderChart()` and `renderCap()` draw them |
+| 🏠 **Dashboard** | Total spent, records, top category, budget left, 7-day chart, budget card | `state.js`, `ui.js` | `getStats()` adds up all records and the last 7 days; `getCapStatus()` compares the total to your cap; `renderStats()`, `renderChart()` and `renderCap()` draw them |
 | 📋 **Records** | The table of transactions, search box and sort menu | `search.js`, `state.js`, `ui.js` | `compileRegex()` turns your search into a safe pattern; `matchesRecord()` filters rows; `highlight()` adds the yellow marks; `sortRecords()` orders them; `renderRecords()` draws the table |
 | ➕ **Add** | The form to add a new transaction | `validators.js`, `state.js` | `validateField()` checks each box with regex as you type; `addRecord()` creates the record with an id and time |
-| ⚙️ **Settings** | Name, budget cap, currencies, categories, import/export | `main.js`, `storage.js` | Saves your settings; `exportRecords()` downloads a JSON file; `parseImport()` checks a file before loading it |
+| ⚙️ **Settings** | Name, budget cap, warning level, currencies, categories, import/export, sample data | `main.js`, `storage.js` | Saves your settings; `exportRecords()` downloads a JSON file; `parseImport()` checks a file before loading it; `handleSample()` loads `seed.json` |
+| 🙋 **Welcome pop-up** | Asks your name on the first visit | `main.js`, `index.html` | A `<dialog>` opened with `showModal()`; `closeWelcome()` saves the name and makes sure it's only asked once |
 | ℹ️ **About** | What the app is and how to contact me | `index.html` | Static information |
 | 🧠 **Everything** | Connects the pages together | `main.js` | Listens for clicks and typing, then tells the other files what to do |
 | 💾 **Saving** | Works in the background | `storage.js` | `saveRecords()` / `loadRecords()` write to and read from `localStorage` |
@@ -146,9 +160,10 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 |---|---|---|
 | 🧾 **A transaction** | Add page | Description, amount, category and date must all pass the regex rules |
 | 🏷️ **A category** | Settings | Letters, single spaces or hyphens (e.g. `Self-care`) |
-| 🎯 **A budget cap** | Settings | A number like `500` or `250.50` |
+| 🎯 **A budget cap** | Settings | A number like `500` or `250.50` (not 0) |
+| ⚠️ **A warning level** | Settings | 50%, 75% or 90% of your budget |
 | 💱 **Currency rates** | Settings | Numbers like `0.92` (EUR) or `1300` (RWF) |
-| 👋 **Your name** | Settings | Letters, single spaces or hyphens; used in the greeting |
+| 👋 **Your name** | Welcome pop-up or Settings | Letters, single spaces or hyphens; used in the greeting |
 | 📥 **A backup file** | Settings | A `.json` file in the correct format |
 
 **Default categories:** Food · Books · Transport · Entertainment · Fees · Other
@@ -186,7 +201,7 @@ Every transaction is saved like this:
 | Key | What it holds |
 |---|---|
 | `finance:records` | The list of all transactions |
-| `finance:settings` | Your name, budget cap, currency rates and categories |
+| `finance:settings` | Your name, budget cap, warning level, currency rates and categories |
 
 ---
 
@@ -234,6 +249,7 @@ The whole app can be used **without a mouse**:
 | `Enter` | Opens a menu page, presses a button, or submits a form | Menu, forms, buttons |
 | `Space` | Ticks or unticks a checkbox | "Ignore case" box |
 | `Escape` | Cancels editing a row without saving | Records table |
+| `Escape` | Skips the welcome pop-up (same as pressing "Skip") | First visit |
 | First `Tab` on the page | Shows the **"Skip to content"** link to jump past the menu | Top of the page |
 
 ---
@@ -249,6 +265,8 @@ The whole app can be used **without a mouse**:
 | **Live regions** (`role="status"`, `aria-live`) | Messages like "Transaction added" and the greeting are read out automatically |
 | **Assertive budget warning** | When you go over budget it's announced **right away** |
 | **Visible purple focus outline** | You can always see where you are with the keyboard |
+| **Welcome pop-up uses `<dialog>`** | Focus goes straight to the name box, and Escape closes it |
+| **Decorative icons hidden** (`aria-hidden`) | Screen readers say "Food" instead of reading out the emoji |
 | **Hidden chart text** (`.visually-hidden`) | Screen readers can "read" the chart values |
 | **Good color contrast** | Text is easy to read for everyone |
 | **Reduced motion** (`prefers-reduced-motion`) | Animations turn off for people who get dizzy from motion |
@@ -325,14 +343,17 @@ Right-click `index.html` → **Open with Live Server**.
 
 ## 🌱 Sample Data (seed.json)
 
-`seed.json` has **10+ sample transactions** with:
+`seed.json` has **12 sample transactions** with:
+- 📈 **A busy week:** 7 records from Oct 9 to Oct 15, 2026, with high and low days so the chart goes up and down
 - 📅 **Edge dates:** a leap day, the first and last day of the year
 - 💰 **Small and large amounts:** from `0.5` to over `1000`
 - 🔤 **Tricky text:** `&`, hyphens and quotes
 
-**How I made it:** I added the transactions in the app, clicked **Export JSON**, and saved the file as `seed.json`.
+**How to load it (easy way):** Settings → **Load sample data**.
 
-**How to load it:** Settings → **Import JSON** → choose `seed.json`.
+**Other way:** Settings → **Restore a JSON backup** → choose `seed.json`.
+
+> 📅 The chart only shows the **last 7 days from today**, so the up-and-down bars appear when the sample week matches the current week.
 
 ---
 
@@ -352,7 +373,6 @@ Open `tests.html` with Live Server. It runs **41 automatic checks**:
 
 ✅ **Expected result:** `41 of 41 tests passed`
 
----
 
 
 ---
@@ -366,4 +386,4 @@ Open `tests.html` with Live Server. It runs **41 automatic checks**:
   <a href="mailto:f.mohamed@alustudent.com"><img src="https://img.shields.io/badge/Email-f.mohamed%40alustudent.com-b3245f?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
 </p>
 
-<p align="center">🌸 Made with care, one little spend at a time 🌸</p># Student Finance Tracker
+<p align="center">🌸 Made with care, one little spend at a time 🌸</p>
