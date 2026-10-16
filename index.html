@@ -1,149 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Finance Tracker</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- <link rel="icon" href=""> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Fatma Samir">
+  <title>pocketpetal · Student Finance Tracker</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <header>
-        <h1>Student Finance Tracker</h1>
-        <nav aria-label="Main">
-            <ul>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#records">Records</a></li>
-                <li><a href="#add">Add</a></li>
-                <li><a href="#settings">Settings</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </header>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-    <main id="main" tabindex="-1">
-        <section id="dashboard" aria-labelledby="dashboard-title">
-            <h2 id="dashboard-title">Dashboard</h2>
-            <div class="stats">
-                <p class="stat">Records <strong id="stat-count">0</strong></p>
-                <p class="stat">Total spent <strong id="stat-total">0</strong></p>
-                <p class="stat">Top Category <strong id="stat-top">-</strong></p>
-            </div>
-            <h3>Last 7 days</h3>
-            <ul id="chart" class="chart" aria-label="spending in the last 7 days"></ul>
-            <p id="cap-message" class="cap" role="status" aria-live="polite"></p>
-        </section>
+  <header class="site-header">
+    <a href="#dashboard" class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 11a5 5 0 0 1 10 0"/>
+          <rect x="5" y="11" width="22" height="16" rx="6"/>
+          <circle cx="16" cy="19" r="2.5"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">pocketpetal</span>
+        <span class="brand-sub">Student Finance Tracker</span>
+      </span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#records">Records</a></li>
+        <li><a href="#add">Add</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <p class="badge badge-mint">Only on this browser</p>
+  </header>
 
-        <section id="records" aria-label="records-title">
-            <h2 id="records-title">Records</h2>
-            <div class="toolbar">
-                <label for="search-input">Search (regex)</label>
-                <input type="text" name="search" id="search-input" placeholder="e.g. beef|pork">
+  <main id="main" tabindex="-1">
+    <section id="dashboard" aria-labelledby="dashboard-title">
+      <div class="hero">
+        <p class="eyebrow">Dashboard / Your week</p>
+        <h1 id="dashboard-title">Small spends. Big peace of mind.</h1>
+        <p class="hero-text">A little check-in for your student life. Track the treats, the textbooks, and everything in between.</p>
+      </div>
+      <p class="note">Your money, your business. Records stay in this browser, with no account and no cloud sync. Export a backup before clearing browser data.</p>
 
-                <label><input type="checkbox" id="search-case" checked> Ignore case</label>
+      <div class="stats">
+        <p class="stat stat-pink"><span class="stat-label">Total spent</span><strong id="stat-total">0</strong><span class="stat-note">All your records</span></p>
+        <p class="stat stat-lavender"><span class="stat-label">Records</span><strong id="stat-count">0</strong><span class="stat-note">Every little spend counts</span></p>
+        <p class="stat stat-peach"><span class="stat-label">Top category</span><strong id="stat-top">-</strong><span class="stat-note">Where most money went</span></p>
+        <p class="stat stat-mint"><span class="stat-label">Budget left</span><strong id="stat-left">0</strong><span class="stat-note" id="stat-left-note">Of your cap</span></p>
+      </div>
 
-                <p id="search-error" role="status" aria-live="polite"></p>
-                <label for="sort-select">Sort by</label>
-                <select id="sort-select">
-                    <option value="date-desc">Date (newest first)</option>
-                    <option value="date-asc">Date (oldest first)</option>
-                    <option value="description-asc">Description (A-Z)</option>
-                    <option value="description-desc">Description (A-Z)</option>
-                    <option value="amount-asc">Amount (low to high)</option>
-                    <option value="amount-desc">Amount (high to low)</option>
-                </select>
-            </div>
-            <p id="records-status" role="status" aria-live="polite"></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="records-body"></tbody>
-            </table>
-            <p id="empty-state" hidden>No transactions yet. Add your first one below.</p>
-        </section>
+      <div class="dash-grid">
+        <div class="card">
+          <h2 class="card-title">The last 7 days</h2>
+          <p class="card-sub">Daily spending</p>
+          <ul id="chart" class="chart" aria-label="Spending in the last 7 days"></ul>
+        </div>
+        <div class="card cap-card">
+          <h2 class="card-title">Budget</h2>
+          <p id="cap-message" class="cap" role="status" aria-live="polite"></p>
+          <div class="progress" aria-hidden="true"><span id="cap-bar" class="progress-bar"></span></div>
+          <p id="cap-detail" class="small"></p>
+        </div>
+      </div>
+    </section>
 
-        <section id="add" aria-labelledby="add-title">
-            <h2 id="add-title">Add transaction</h2>
-            <form id="record-form" novalidate>
-                <label for="description">Description</label>
-                <input type="text" id="description" aria-describedby="description-error">
-                <p id="description-error" class="error"></p>
+    <section id="records" aria-labelledby="records-title">
+      <div class="section-head">
+        <span class="section-number" aria-hidden="true">02</span>
+        <div>
+          <p class="eyebrow">Records</p>
+          <h2 id="records-title">Your spending diary</h2>
+          <p class="section-sub">Find a spend, make a tweak, keep the story tidy.</p>
+        </div>
+      </div>
 
-                <label for="amount">Amount (USD)</label>
-                <input type="text" id="amount" inputmode="decimal" aria-describedby="amount-error">
-                <p id="amount-error" class="error"></p>
+      <div class="card toolbar">
+        <div class="field field-grow">
+          <label for="search-input">Search &amp; highlight (regex)</label>
+          <input type="text" id="search-input" placeholder="e.g. coffee|tea">
+        </div>
+        <div class="field">
+          <label for="sort-select">Sort by</label>
+          <select id="sort-select">
+            <option value="date-desc">Date (newest first)</option>
+            <option value="date-asc">Date (oldest first)</option>
+            <option value="description-asc">Description (A-Z)</option>
+            <option value="description-desc">Description (Z-A)</option>
+            <option value="amount-asc">Amount (low to high)</option>
+            <option value="amount-desc">Amount (high to low)</option>
+          </select>
+        </div>
+        <label class="check"><input type="checkbox" id="search-case" checked> Ignore case</label>
+        <p id="search-error" class="error" role="status" aria-live="polite"></p>
+      </div>
 
-                <label for="category">Category</label>
-                <select id="category" aria-describedby="category-error"></select>
-                <p id="category-error" class="error"></p>
+      <p id="records-status" role="status" aria-live="polite"></p>
 
-                <label for="date">Date</label>
-                <input type="date" id="date" aria-describedby="date-error">
-                <p id="date-error" class="error"></p>
-                
-                <button type="submit">Add</button>
-                <p id="form-status" role="status" aria-live="polite"></p>
-            </form>
-        </section>
+      <div class="card table-card">
+        <table>
+          <thead>
+            <tr><th scope="col">Date</th><th scope="col">Description</th><th scope="col">Category</th><th scope="col">Amount</th><th scope="col">Actions</th></tr>
+          </thead>
+          <tbody id="records-body"></tbody>
+        </table>
+        <p id="records-total" class="table-total"></p>
+      </div>
 
-        <section id="settings" aria-labelledby="settings-title">
-            <h2 id="settings-title">Settings</h2>
-            <p id="settings-status" role="status" aria-live="polite"></p>
-            <h3>Budget</h3>
+      <div id="empty-state" class="empty" hidden>
+        <p class="eyebrow">A fresh diary</p>
+        <p class="empty-title">No records yet. Your first spend starts the story.</p>
+        <a href="#add" class="button-link">Add first spend</a>
+      </div>
+    </section>
 
-            <form id="cap-form">
-                <label for="cap-input">Budget cap (USD)</label>
-                <input type="text" id="cap-input" inputmode="decimal">
-                <button type="submit">Save cap</button>
-            </form>
+    <section id="add" aria-labelledby="add-title">
+      <div class="section-head">
+        <span class="section-number" aria-hidden="true">03</span>
+        <div>
+          <p class="eyebrow">Add transaction</p>
+          <h2 id="add-title">Log a little spend</h2>
+          <p class="section-sub">The small stuff adds up. Give it a place in your diary.</p>
+        </div>
+      </div>
 
-            <h3>Currency</h3>
-            <label for="Currency-select">Show amounts in</label>
-            <select id="currency-select">
-                <option value="USD">USD (base)</option>
-                <option value="EUR">EUR</option>
-                <option value="RWF">RWF</option>
+      <div class="add-grid">
+        <form id="record-form" class="card" novalidate>
+          <div class="field form-wide">
+            <label for="description">Description</label>
+            <input type="text" id="description" aria-describedby="description-error">
+            <p id="description-error" class="error"></p>
+          </div>
+          <div class="field">
+            <label for="amount">Amount (USD)</label>
+            <input type="text" id="amount" inputmode="decimal" aria-describedby="amount-error">
+            <p id="amount-error" class="error"></p>
+          </div>
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category" aria-describedby="category-error"></select>
+            <p id="category-error" class="error"></p>
+          </div>
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date" aria-describedby="date-error">
+            <p id="date-error" class="error"></p>
+          </div>
+          <div class="form-wide">
+            <button type="submit">Add transaction</button>
+            <p id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <aside class="tip" aria-label="Tip">
+          <span class="tip-icon" aria-hidden="true">✿</span>
+          <h3>Tiny habits, happy wallet.</h3>
+          <p>Log it while it's fresh. Your saved spend updates the diary, chart, and budget together.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="settings" aria-labelledby="settings-title">
+      <div class="section-head">
+        <span class="section-number" aria-hidden="true">04</span>
+        <div>
+          <p class="eyebrow">Settings</p>
+          <h2 id="settings-title">Make it yours</h2>
+          <p class="section-sub">A budget that fits your life, not the other way around.</p>
+        </div>
+      </div>
+
+      <p id="settings-status" role="status" aria-live="polite"></p>
+
+      <div class="settings-grid">
+        <div class="card">
+          <h3>Your name</h3>
+          <form id="name-form">
+            <label for="name-input">Name</label>
+            <input type="text" id="name-input">
+            <button type="submit">Save name</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Budget &amp; gentle warnings</h3>
+          <form id="cap-form">
+            <label for="cap-input">Budget cap (USD)</label>
+            <input type="text" id="cap-input" inputmode="decimal">
+            <label for="warn-select">Warn me at</label>
+            <select id="warn-select">
+              <option value="50">50% of my budget</option>
+              <option value="75">75% of my budget</option>
+              <option value="90">90% of my budget</option>
             </select>
+            <button type="submit">Save budget</button>
+          </form>
+        </div>
 
-            <form id="rates-form">
-                <label for="rate-eur">1 USD in EUR</label>
-                <input type="text" id="rate-eur" inputmode="decimal">
-                <label for="rate-rwf">1 USD in RWF</label>
-                <input type="text" id="rate-rwf" inputmode="decimal">
-                <button type="submit">Save rates</button>
-            </form>
-            <h3>Categories</h3>
-            <ul id="category-list"></ul>
-            <form id="category-form">
-                <label for="new-category">New category</label>
-                <input type="text" id="new-category">
-                <button type="submit">Add category</button>
-            </form>
-            <h3>Data</h3>
-            <button type="button" id="export-btn">Export JSON</button>
-            <label for="import-file">Import JSON</label>
-            <input type="file" id="import-file" accept=".json,application/json">
-        </section>
+        <div class="card">
+          <h3>Currencies &amp; rates</h3>
+          <label for="currency-select">Show amounts in</label>
+          <select id="currency-select">
+            <option value="USD">USD (base)</option>
+            <option value="EUR">EUR</option>
+            <option value="RWF">RWF</option>
+          </select>
+          <form id="rates-form">
+            <label for="rate-eur">1 USD in EUR</label>
+            <input type="text" id="rate-eur" inputmode="decimal">
+            <label for="rate-rwf">1 USD in RWF</label>
+            <input type="text" id="rate-rwf" inputmode="decimal">
+            <button type="submit">Save rates</button>
+          </form>
+        </div>
 
-        <section id="about" aria-labelledby="about-title">
-            <h2 id="about-title">About</h2>
-            <p>Student Finance Tracker helps students record their spending, see where their money goes, and stay under a monthly budget. Built with plain HTML, CSS and Javascript.</p>
-            <p>Made by Fatima Samir.</p>
-            <ul>
-                <li>Github: <a href="https://github.com/fmohamed-a11y">fmohamed-a11y</a></li>
-                <li>Email: <a href="mailto:f.mohamed@alustudent.com">f.mohamed@alustudent.com</a></li>
-            </ul>
-        </section>
-    </main>
-    <footer><p>Student Finance Tracker</p></footer>
-    <script type="module" src="scripts/main.js"></script>
+        <div class="card">
+          <h3>Your categories</h3>
+          <ul id="category-list" class="pill-list"></ul>
+          <form id="category-form">
+            <label for="new-category">New category name</label>
+            <input type="text" id="new-category" placeholder="e.g. Personal care">
+            <button type="submit">Add category</button>
+          </form>
+        </div>
+
+        <div class="card card-wide">
+          <h3>Import, export &amp; a little safety net</h3>
+          <p class="card-sub">Browser-only means no automatic recovery. Keep a copy somewhere safe.</p>
+          <button type="button" id="sample-btn">Load sample data</button>
+          <button type="button" id="export-btn">Export JSON</button>
+          <label for="import-file">Restore a JSON backup</label>
+          <input type="file" id="import-file" accept=".json,application/json">
+          <p class="habit"><span class="chip">Suggested habit</span> Make Sunday your backup day. A tiny export is a big safety net.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-head">
+        <span class="section-number" aria-hidden="true">05</span>
+        <div>
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">A pocket-sized bit of calm</h2>
+          <p class="section-sub">About pocketpetal, your student finance tracker</p>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div>
+          <h3>Less money stress. More student life.</h3>
+          <p>pocketpetal is a one-page spending diary for students. Record purchases, see where your money goes, and get a nudge before you go over budget. Built with plain (vanilla) HTML, CSS and JavaScript.</p>
+          <p class="small">Nothing is sent to a server. Clearing site data removes your records, so your exported JSON backup is your way back.</p>
+        </div>
+        <div class="contact">
+          <h3>Contact</h3>
+          <p>Made by Fatma Samir.</p>
+          <ul>
+            <li>GitHub: <a href="https://github.com/fmohamed-a11y">fmohamed-a11y</a></li>
+            <li>Email: <a href="mailto:f.mohamed@alustudent.com">f.mohamed@alustudent.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p class="brand-name">pocketpetal ✿</p>
+      <p class="small">Student Finance Tracker · Small spends, big dreams.</p>
+    </div>
+    <div class="footer-right">
+      <p class="small">Stored locally. Yours to keep.</p>
+      <a href="#dashboard">Back to dashboard ↑</a>
+    </div>
+  </footer>
+
+  <dialog id="welcome" class="welcome" aria-labelledby="welcome-title">
+    <form id="welcome-form" novalidate>
+      <span class="brand-icon brand-icon-large" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 11a5 5 0 0 1 10 0"/>
+          <rect x="5" y="11" width="22" height="16" rx="6"/>
+          <circle cx="16" cy="19" r="2.5"/>
+        </svg>
+      </span>
+      <h2 id="welcome-title">Welcome to pocketpetal 🌸</h2>
+      <p class="card-sub">What should we call you?</p>
+      <label for="welcome-name">Your name</label>
+      <input type="text" id="welcome-name" aria-describedby="welcome-error" autocomplete="given-name">
+      <p id="welcome-error" class="error" role="status" aria-live="polite"></p>
+      <div class="dialog-actions">
+        <button type="submit">Let's go</button>
+        <button type="button" id="welcome-skip" class="button-ghost">Skip</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

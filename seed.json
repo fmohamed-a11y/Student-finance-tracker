@@ -1,0 +1,110 @@
+[
+  {
+    "id": "txn_0001",
+    "description": "Lunch at cafeteria",
+    "amount": 12.5,
+    "category": "Food",
+    "date": "2026-10-15",
+    "createdAt": "2026-10-15T09:01:00.000Z",
+    "updatedAt": "2026-10-15T09:01:00.000Z"
+  },
+  {
+    "id": "txn_0002",
+    "description": "Coffee & croissant",
+    "amount": 6.4,
+    "category": "Food",
+    "date": "2026-10-13",
+    "createdAt": "2026-10-13T15:02:00.000Z",
+    "updatedAt": "2026-10-13T15:02:00.000Z"
+  },
+  {
+    "id": "txn_0003",
+    "description": "Weekly bus pass",
+    "amount": 15,
+    "category": "Transport",
+    "date": "2026-10-13",
+    "createdAt": "2026-10-13T09:03:00.000Z",
+    "updatedAt": "2026-10-13T09:03:00.000Z"
+  },
+  {
+    "id": "txn_0004",
+    "description": "Movie night with friends",
+    "amount": 55,
+    "category": "Entertainment",
+    "date": "2026-10-12",
+    "createdAt": "2026-10-12T09:04:00.000Z",
+    "updatedAt": "2026-10-12T09:04:00.000Z"
+  },
+  {
+    "id": "txn_0005",
+    "description": "Library printing",
+    "amount": 2.75,
+    "category": "Fees",
+    "date": "2026-10-11",
+    "createdAt": "2026-10-11T09:05:00.000Z",
+    "updatedAt": "2026-10-11T09:05:00.000Z"
+  },
+  {
+    "id": "txn_0006",
+    "description": "Psychology textbook",
+    "amount": 72.99,
+    "category": "Books",
+    "date": "2026-10-10",
+    "createdAt": "2026-10-10T09:06:00.000Z",
+    "updatedAt": "2026-10-10T09:06:00.000Z"
+  },
+  {
+    "id": "txn_0007",
+    "description": "Weekly groceries",
+    "amount": 24.5,
+    "category": "Food",
+    "date": "2026-10-09",
+    "createdAt": "2026-10-09T09:07:00.000Z",
+    "updatedAt": "2026-10-09T09:07:00.000Z"
+  },
+  {
+    "id": "txn_0008",
+    "description": "Self-care kit",
+    "amount": 64.25,
+    "category": "Other",
+    "date": "2026-10-14",
+    "createdAt": "2026-10-14T09:08:00.000Z",
+    "updatedAt": "2026-10-14T09:08:00.000Z"
+  },
+  {
+    "id": "txn_0009",
+    "description": "Bus \"express\" ticket",
+    "amount": 4.2,
+    "category": "Transport",
+    "date": "2026-09-30",
+    "createdAt": "2026-09-30T09:09:00.000Z",
+    "updatedAt": "2026-09-30T09:09:00.000Z"
+  },
+  {
+    "id": "txn_0010",
+    "description": "Leap day snack",
+    "amount": 0.5,
+    "category": "Food",
+    "date": "2024-02-29",
+    "createdAt": "2024-02-29T12:00:00.000Z",
+    "updatedAt": "2024-02-29T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0011",
+    "description": "New Year coffee",
+    "amount": 3,
+    "category": "Food",
+    "date": "2026-01-01",
+    "createdAt": "2026-01-01T09:11:00.000Z",
+    "updatedAt": "2026-01-01T09:11:00.000Z"
+  },
+  {
+    "id": "txn_0012",
+    "description": "Laptop repair",
+    "amount": 1250.99,
+    "category": "Fees",
+    "date": "2025-12-31",
+    "createdAt": "2025-12-31T09:12:00.000Z",
+    "updatedAt": "2025-12-31T09:12:00.000Z"
+  }
+]
