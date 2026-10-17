@@ -25,10 +25,10 @@
 
 | | Link |
 |---|---|
-| 🌐 **Live Demo** | [ADD GITHUB PAGES LINK HERE] |
+| 🌐 **Live Demo** | [https://fmohamed-a11y.github.io/Student-finance-tracker/] |
 | 🎥 **Demo Video** | [ADD VIDEO LINK HERE] |
-| 📁 **Repository** | [ADD REPOSITORY LINK HERE] |
-| 🧪 **Tests Page** | [ADD GITHUB PAGES LINK HERE]/tests.html |
+| 📁 **Repository** | [https://github.com/fmohamed-a11y/Student-finance-tracker] |
+| 🧪 **Tests Page** | [https://fmohamed-a11y.github.io/Student-finance-tracker/tests.html]/tests.html |
 
 ---
 
@@ -67,8 +67,7 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 |---|---|
 | 🎓 **Course** | Building Responsive UI (Front-End Web Development) |
 | 📝 **Assignment** | Summative: Student Finance Tracker theme |
-| 📅 **Due date** | [ADD DUE DATE] |
-| ⏱️ **Time spent** | [ADD HOW LONG IT TOOK] |
+| 📅 **Due date** | 10-18-2026 |
 
 **Why it's useful:** students often lose track of small spends. This app makes them visible, warns you before your budget runs out, and keeps your data private in your own browser.
 
@@ -110,33 +109,18 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 
 | Feature | What it does |
 |---|---|
-| 🧭 **Separate pages** | The menu opens Dashboard, Records, Add, Settings or About one at a time |
-| 👛 **pocketpetal branding** | App name and purse logo in the header and the welcome pop-up |
-| 🙋 **Welcome name form** | On your first visit a pop-up asks your name; type it to get "Hi Fatma", or skip to get "Hi there" |
-| 👋 **Greeting pop-up** | Slides in when the app opens, showing your name and how many records you have |
-| ➕ **Add transactions** | Add a description, amount, category and date, checked with regex as you type |
-| ✏️ **Inline edit** | Edit a row directly in the table; press **Escape** to cancel |
-| 🗑️ **Delete** | Removes a transaction after asking "Are you sure?" |
-| 🔍 **Regex search** | Search with patterns; matches are highlighted in yellow |
-| 🔠 **Case toggle** | Choose whether the search cares about capital letters |
-| ↕️ **Sorting** | Sort by date, description (A–Z / Z–A) or amount |
-| 📊 **Dashboard stats** | Total spent, number of records, top category and **budget left** |
-| 📈 **7-day chart** | Bars show how much you spent on each of the last 7 days |
-| 🎯 **Budget cap** | A progress bar and message: green when you're fine, amber when you're close, red when you go over |
-| 💚 **Budget left card** | A dashboard card showing exactly how much money is left from your cap |
-| ⚠️ **Warn me at** | Choose to be warned at 50%, 75% or 90% of your budget |
-| 🔔 **Toast alerts** | A small pop-up tells you when you hit your warning level, go over budget, or import a file |
-| 💱 **Currencies** | Switch between USD, EUR and RWF using rates you type in |
-| 🏷️ **Custom categories** | Add your own categories next to the default ones (duplicates are blocked) |
-| 🍴 **Category icons** | Every category has an emoji (🍴 Food, 📚 Books, 🚌 Transport…); new ones get 🏷️ |
-| 🧮 **Records total** | Under the table: how many records you see and their total, which updates as you search |
-| 💾 **Auto-save** | Every change is saved instantly and stays after a reload |
-| 📤 **Export JSON** | Download all your records as a backup file |
-| 📥 **Import JSON** | Load a backup file; it's checked first, so broken files are rejected |
-| 🌱 **Load sample data** | One button in Settings loads the 12 sample records from `seed.json` and jumps to the Dashboard |
+| 👛 **pocketpetal** | Its own name and purse logo, with separate pages for Dashboard, Records, Add, Settings and About |
+| 🙋 **Welcome & greeting** | Asks your name on the first visit ("Hi Fatma"), or "Hi there" if you skip |
+| ➕ **Add, edit, delete** | Every field is checked with regex as you type; edit rows inline (Escape cancels) |
+| 🔍 **Regex search** | Search with patterns, matches highlighted in yellow, with a case toggle |
+| ↕️ **Sorting** | By date, description (A–Z / Z–A) or amount |
+| 📊 **Dashboard** | Total spent, records, top category, budget left and a 7-day chart |
+| 🎯 **Budget & warnings** | Set a cap and choose to be warned at 50%, 75% or 90%: green, amber or red, with pop-up alerts |
+| 💱 **Currencies** | Show amounts in USD, EUR or RWF using your own rates |
+| 🏷️ **Categories** | Default categories with icons, plus your own (no duplicates) |
+| 💾 **Save, import & export** | Auto-saves in the browser; export a JSON backup, import one (checked first), or load sample data |
 | 📱 **Responsive** | Works on phones, tablets and laptops |
-| 🎞️ **Animations** | Smooth transitions on buttons, chart bars and the greeting pop-up |
-
+| ♿ **Accessible** | Keyboard friendly, screen-reader messages and reduced motion |
 ---
 
 ## 🗺️ Pages & the Files Behind Them
@@ -325,7 +309,7 @@ Student-finance-tracker/
 
 **1. Clone the repository**
 ```bash
-git clone [ADD REPOSITORY LINK HERE].git
+git clone https://github.com/fmohamed-a11y/Student-finance-tracker.git
 ```
 
 **2. Open it in VS Code**
