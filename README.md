@@ -28,7 +28,7 @@
 | 🌐 **Live Demo** | https://fmohamed-a11y.github.io/Student-finance-tracker/ |
 | 🎥 **Demo Video** | https://youtu.be/Az0JmGXkL0g |
 | 📁 **Repository** | https://github.com/fmohamed-a11y/Student-finance-tracker |
-| 🧪 **Tests Page** | https://fmohamed-a11y.github.io/Student-finance-tracker/tests.html]/tests.html |
+| 🧪 **Tests Page** | https://fmohamed-a11y.github.io/Student-finance-tracker/tests.html |
 
 ---
 
