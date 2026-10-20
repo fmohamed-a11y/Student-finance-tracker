@@ -65,7 +65,7 @@ export function validateField(field, value) {
 
   return '';
 }
-// it checks the records by the FIELD list in case something is wrong it gives a error message, in case there is no error the list comes back empty  
+// it checks the records by the FIELD list in case something is wrong it gives a error message, in case there is no error the list comes back empty 
 export function validateRecord(record) {
   const errors = {};
   for (const field of FIELDS) {
