@@ -78,7 +78,6 @@ Everything is built from scratch with **plain (vanilla) HTML, CSS and JavaScript
 | Item | Details |
 |---|---|
 | 💾 **Storage** | `localStorage`, saved in your browser |
-| 📶 **Internet needed?** | No. There's no server or account, so your data never leaves your device |
 | 🔐 **Privacy** | Nothing is sent anywhere; only you can see your records |
 | 🧱 **Frameworks** | None: plain HTML, CSS and JavaScript |
 | 📱 **Mobile responsive** | Yes: mobile-first, works on phones, tablets and laptops |
